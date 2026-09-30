@@ -6,6 +6,10 @@ import { LogPage } from "./pages/LogPage";
 import { ProfilePage } from "./pages/ProfilePage";
 import { BadgesPage } from "./pages/BadgesPage";
 import { LeaderboardPage } from "./pages/LeaderboardPage";
+import { LandingPage } from "./pages/LandingPage";
+import { BoardPage } from "./pages/BoardPage";
+import { MapPage } from "./pages/MapPage";
+import { QuestDetailPage } from "./pages/QuestDetailPage";
 import { DomainExpansionOverlay } from "./components/DomainExpansionOverlay";
 import { LevelUpModal } from "./components/LevelUpModal";
 
@@ -20,7 +24,10 @@ const AppContent: React.FC = () => {
       {/* Main Content Area */}
       <main className="flex-1 pb-16">
         <Routes>
-          <Route path="/" element={<Navigate to="/log" replace />} />
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/board" element={<BoardPage />} />
+          <Route path="/map" element={<MapPage />} />
+          <Route path="/quest/:id" element={<QuestDetailPage />} />
           <Route path="/log" element={<LogPage />} />
           <Route path="/profile" element={<ProfilePage />} />
           <Route path="/badges" element={<BadgesPage />} />

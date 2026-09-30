@@ -16,8 +16,9 @@ export const Navbar: React.FC = () => {
   };
 
   const navLinks = [
-    { label: "Home", href: "/", isPairA: true },
-    { label: "Board", href: "/board", isPairA: true },
+    { label: "Home", href: "/", isPairA: false },
+    { label: "Board", href: "/board", isPairA: false },
+    { label: "Map", href: "/map", isPairA: false },
     { label: "Missions", href: "/log", isPairA: false },
     { label: "Profile", href: "/profile", isPairA: false },
     { label: "Badges", href: "/badges", isPairA: false },

@@ -57,6 +57,20 @@ export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const [celebration, setCelebration] = useState<CelebrationState | null>(null);
   const [levelUpModal, setLevelUpModal] = useState<LevelUpState | null>(null);
 
+  useEffect(() => {
+    const syncSharedStorage = () => {
+      setPlayer(getStoredPlayer());
+      setAcceptedQuestIds(getStoredAcceptedQuestIds());
+      setCompletedQuests(getStoredCompletedQuests());
+    };
+    window.addEventListener("cu_storage_update", syncSharedStorage);
+    window.addEventListener("storage", syncSharedStorage);
+    return () => {
+      window.removeEventListener("cu_storage_update", syncSharedStorage);
+      window.removeEventListener("storage", syncSharedStorage);
+    };
+  }, []);
+
   // Sync state whenever player or storage changes
   const gradeInfo = useMemo(() => getGradeInfo(player.xp), [player.xp]);
 

@@ -1,5 +1,7 @@
 export interface Location { id: string; name: string; type: string; mapPos: {x:number;y:number}; photo: string }
-export const LOCATIONS: Location[] = [
+import { LOCATIONS as DISCOVERY_LOCATIONS } from "./locationsA";
+
+const PROGRESSION_LOCATIONS: Location[] = [
  { id:"gate-1", name:"Gate 1", type:"Gate", mapPos:{x:8,y:90}, photo:"/photos/gate-1.jpg" },
  { id:"gate-2", name:"Gate 2", type:"Gate", mapPos:{x:92,y:90}, photo:"/photos/gate-2.jpg" },
  { id:"gate-3", name:"Gate 3", type:"Gate", mapPos:{x:8,y:10}, photo:"/photos/gate-3.jpg" },
@@ -28,3 +30,10 @@ export const LOCATIONS: Location[] = [
  { id:"fountain-park", name:"Fountain Park", type:"Park", mapPos:{x:50,y:60}, photo:"/photos/fountain-park.jpg" },
  { id:"workshop", name:"Workshop", type:"Workshop", mapPos:{x:85,y:35}, photo:"/photos/workshop.jpg" },
 ];
+
+const locationsById = new Map<string, Location>();
+for (const location of [...DISCOVERY_LOCATIONS, ...PROGRESSION_LOCATIONS]) {
+  locationsById.set(location.id, location);
+}
+
+export const LOCATIONS: Location[] = [...locationsById.values()];

@@ -1,5 +1,7 @@
 export type QuestCategory = "Workshop" | "Library" | "Coding" | "Club" | "Wellness" | "Secret";
 export type SorcererGrade = "Grade 4" | "Grade 3" | "Grade 2" | "Grade 1" | "Special Grade";
+export type Category = QuestCategory;
+export type Grade = SorcererGrade;
 
 export interface Quest {
   id: string;
@@ -19,11 +21,13 @@ export interface CompletedQuestRecord {
   proof?: string;
   completedAt: string;
 }
+export type CompletedQuest = CompletedQuestRecord;
 
 export interface PlayerData {
   name: string;
   xp: number;
 }
+export type PlayerProfile = PlayerData;
 
 export interface Badge {
   id: string;

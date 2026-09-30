@@ -1,6 +1,7 @@
 import { Quest } from "../types";
+import { QUESTS as DISCOVERY_QUESTS } from "./questsA";
 
-export const QUESTS: Quest[] = [
+const PROGRESSION_QUESTS: Quest[] = [
   {
     id: "quest-lib-01",
     title: "Tome of Inverted Spear: D6 Silence Barrier",
@@ -200,3 +201,10 @@ export const QUESTS: Quest[] = [
     proofType: "code",
   }
 ];
+
+const questsById = new Map<string, Quest>();
+for (const quest of [...DISCOVERY_QUESTS, ...PROGRESSION_QUESTS]) {
+  questsById.set(quest.id, quest);
+}
+
+export const QUESTS: Quest[] = [...questsById.values()];
