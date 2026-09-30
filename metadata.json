@@ -1,0 +1,6 @@
+{
+  "name": "CU CURSED MISSION BOARD — Progression Engine",
+  "description": "Jujutsu Kaisen-themed mission tracking and sorcerer progression engine for Chandigarh University students.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
